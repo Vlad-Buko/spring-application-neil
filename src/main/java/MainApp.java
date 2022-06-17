@@ -1,20 +1,19 @@
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import springcourse.Music;
-import springcourse.MusicPlayer;
+import rus.doc.domaniewkski.springcourse.ClassicalMusic;
+import rus.doc.domaniewkski.springcourse.Music;
+import rus.doc.domaniewkski.springcourse.MusicPlayer;
 
 /**
  * Created by Vladislav Domaniewski
  */
 
-public class TestSpring {
+public class MainApp {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml"
         );
-        Music music = context.getBean("musicBean", Music.class);
-
+        Music music = context.getBean("classicalMusic", ClassicalMusic.class);
         MusicPlayer musicPlayer = new MusicPlayer(music);
-
         musicPlayer.playMusic();
         context.close();
     }
