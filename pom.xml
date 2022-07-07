@@ -10,7 +10,7 @@
   <packaging>war</packaging>
 
   <name>AppFromAlishev Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
+
   <url>http://www.example.com</url>
 
   <properties>
@@ -79,7 +79,12 @@
       <version>1.18.14</version>
       <scope>provided</scope>
     </dependency>
-
+    <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.3.2</version>
+    </dependency>
   </dependencies>
 
   <build>
