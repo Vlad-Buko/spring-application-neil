@@ -1,11 +1,12 @@
 package rus.doc.models;
 
 import lombok.Data;
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+
 
 /**
  * Created by Vladislav Domaniewski
@@ -23,8 +24,6 @@ public class Person {
     @NotEmpty(message = "Field can't empty!")
     @Email
     private String email;
-
-
 
     public Person(int id, String name, int age, String email) {
         this.id = id;
