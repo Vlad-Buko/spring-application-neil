@@ -23,28 +23,30 @@ public class PersonDAO {
     }
 
     public List<Person> index() {
-        return jdbcTemplate.query("SELECT * FROM people",
+        return jdbcTemplate.query("SELECT * FROM person",
                 new BeanPropertyRowMapper<>(Person.class));
     }
 
     public Person show(int id) {
-        return jdbcTemplate.query("SELECT * FROM people WHERE id=?",
+        System.out.println(id);
+        return jdbcTemplate.query("SELECT * FROM person WHERE id=?",
                 new Object[]{id}, new BeanPropertyRowMapper<>(Person.class))
                 .stream().findAny().orElse(null);
     }
 
     public void save(Person person) {
-        jdbcTemplate.update("INSERT INTO people VALUES(1, ?, ?, ?)", person.getName(),
-                person.getAge(), person.getEmail());
+        jdbcTemplate.update("INSERT INTO person(name , age) VALUES(?, ?)",
+                person.getName(),
+                person.getAge());
     }
 
     public void update(int id, Person updatedPerson) {
-        jdbcTemplate.update("UPDATE people SET name=?, age=?, " +
-                        "email=? WHERE id=?", updatedPerson.getName(),
-                updatedPerson.getAge(), updatedPerson.getEmail(), id);
+        jdbcTemplate.update("UPDATE person SET name=?, age=?" +
+                        "WHERE id=?", updatedPerson.getName(),
+                updatedPerson.getAge(), id);
     }
 
     public void delete(int id) {
-        jdbcTemplate.update("DELETE FROM people WHERE id=?", id);
+        jdbcTemplate.update("DELETE FROM person WHERE id=?", id);
     }
 }
