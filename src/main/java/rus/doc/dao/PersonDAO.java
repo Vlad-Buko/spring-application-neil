@@ -8,6 +8,7 @@ import rus.doc.models.Book;
 import rus.doc.models.Person;
 
 import java.util.List;
+import java.util.Optional;
 
 
 /**
@@ -29,10 +30,14 @@ public class PersonDAO {
     }
 
     public Person show(int id) {
-        System.out.println(id);
-        return jdbcTemplate.query("SELECT * FROM person WHERE id=?",
-                new Object[]{id}, new BeanPropertyRowMapper<>(Person.class))
-                .stream().findAny().orElse(null);
+        return jdbcTemplate.query("SELECT * FROM person WHERE id=?", new Object[]{id} ,
+                new BeanPropertyRowMapper<>(Person.class)).stream().findAny().orElse(null);
+    }
+
+    public Optional<Person> show(String name) {
+        return jdbcTemplate.query("SELECT * FROM person WHERE name=?",
+                new Object[]{name}, new BeanPropertyRowMapper<>(Person.class))
+                .stream().findAny();
     }
 
     public void save(Person person) {

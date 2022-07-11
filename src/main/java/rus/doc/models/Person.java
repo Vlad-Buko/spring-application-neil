@@ -2,10 +2,7 @@ package rus.doc.models;
 
 import lombok.Data;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 
 /**
@@ -15,11 +12,12 @@ import javax.validation.constraints.Size;
 public class Person {
 
     private int id;
-    @NotEmpty(message = "Field can't empty")
-    @Size(min = 0, max = 27, message = "Length name should be in 2-27 characters!")
+    @NotEmpty(message = "Поле не может быть пустым")
+    @Size(min = 3, max = 77, message = "Длина ФИО в пределах 3-77")
     private String name;
 
-    @Min(value = 0, message = "Age started with 0!")
+    @Min(value = 0, message = "Возвраст не может быть отрицательным")
+    @Max(value = 101, message = "Возвраст не может быть больше")
     private int age;
 
     private String book;

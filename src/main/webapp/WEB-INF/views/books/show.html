@@ -27,12 +27,12 @@
     </form>
 </div>
 
-<p th:text="${book.getId()}">VALUE</p>
-
-<a th:href="@{/books/{id}/edit(id=${book.getId()})}">Edit</a>
+<a th:href="@{/books/{id}/edit(id=${book.getId()})}">Редактировать</a>
 
 <form th:method="DELETE" th:action="@{/books/{id}(id=${book.getId()})}">
     <input type="submit" value="Удалить"/>
+    </br>
+    <a href="/books">Назад</a>
 </form>
 </body>
 </html>
