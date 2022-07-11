@@ -22,7 +22,9 @@ public class Person {
     @Min(value = 0, message = "Age started with 0!")
     private int age;
 
-    public Person(int id, String name, int age, String email) {
+    private String book;
+
+    public Person(int id, String name, int age) {
         this.id = id;
         this.name = name;
         this.age = age;
