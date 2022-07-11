@@ -7,22 +7,22 @@
 <body>
 
 <form th:method="POST" th:action="@{/books}" th:object="${book}">
-    <label for="nameBook">Enter title: </label>
+    <label for="nameBook">Введите название книги: </label>
     <input type="text" th:field="*{nameBook}" id="nameBook"/>
     <div style="color:red" th:if="${#fields.hasErrors('nameBook')}" th:errors="*{nameBook}">Name Error</div>
     <br/>
-    <label for="author">Enter author: </label>
+    <label for="author">Введите автора: </label>
     <input type="text" th:field="*{author}" id="author"/>
     <div style="color:red" th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author Error</div>
     <br/>
-    <label for="age">Enter age book: </label>
+    <label for="age">Введите год издания: </label>
     <input type="text" th:field="*{age}" id="age"/>
     <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</div>
     <br/>
-    <input type="submit" value="-Create-"/>
+    <input type="submit" value="Добавить книгу"/>
 </form>
-
-    <a href="/books">Back</a>
+<br/>
+<a href="/books">Назад</a>
 
 </body>
 </html>
