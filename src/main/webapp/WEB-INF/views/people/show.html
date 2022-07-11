@@ -5,13 +5,12 @@
   <title>Show</title>
 </head>
 <body>
-<a>List Person</a>
-<p th:text="'NAME---> ' + ${person.getName()}">VALUE</p>
-<p th:text="'AGE------> ' + ${person.getAge()}">VALUE</p>
-<p th:text="'ID---------> ' + ${person.getId()}" >VALUE</p>
+<p th:text="'ФИО: ' + ${person.getName()}">VALUE</p>
+<p th:text="'Возвраст: ' + ${person.getAge()}">VALUE</p>
+<p th:text="'ИН: ' + ${person.getId()}" >VALUE</p>
 
 <div th:if="${books.isEmpty()}">
-  <p>Man is not book</p>
+  <p>У человека нету книги</p>
   <hr/>
 </div>
 

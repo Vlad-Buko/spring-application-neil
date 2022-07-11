@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.*;
 import rus.doc.dao.BookDAO;
 import rus.doc.dao.PersonDAO;
@@ -82,8 +83,6 @@ public class BookController {
         return "redirect:/books";
     }
 
-
-
     @DeleteMapping("/{id}")
     public String deleteBook(@PathVariable("id") int id) {
         bookDAO.deleteBook(id);
@@ -102,5 +101,4 @@ public class BookController {
         bookDAO.addPersonInBook(id, person);
         return "redirect:/books/" + id;
     }
-
 }
