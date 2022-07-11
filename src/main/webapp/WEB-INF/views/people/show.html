@@ -25,10 +25,10 @@
   <hr/>
 </div>
 
-<a th:href="@{/people/{id}/edit(id=${person.getId()})}">Edit</a>
-<a href="/people">Back</a>
+<a th:href="@{/people/{id}/edit(id=${person.getId()})}">Редактировать</a>
+<a href="/people">Назад</a>
 <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
-  <input type="submit" value="Delete"/>
+  <input type="submit" value="Удалить!"/>
 </form>
 </body>
 </html>
