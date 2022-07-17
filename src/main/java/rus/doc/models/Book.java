@@ -2,6 +2,7 @@ package rus.doc.models;
 
 import lombok.Data;
 
+import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
@@ -11,11 +12,16 @@ import javax.validation.constraints.Size;
  * Created by Vladislav Domaniewski
  */
 
+@Entity
 @Data
 public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int id;
     @NotEmpty(message = "Поле не может быть пустым")
     @Size(min = 3, max = 77, message = "Длина названия книги в пределах 3-77")
+    @Column(name = "name_book")
     private String nameBook;
     @NotEmpty(message = "Поле не может быть пустым")
     @Size(min = 3, max = 77, message = "Длина имени автора в пределах 3-77")
