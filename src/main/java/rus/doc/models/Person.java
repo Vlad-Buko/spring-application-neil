@@ -1,9 +1,11 @@
 package rus.doc.models;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.util.Date;
 
 
 /**
@@ -31,6 +33,16 @@ public class Person {
 
     @Column(name = "book")
     private String book;
+
+    @Column(name = "date_for_person_date")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    // i need added validator
+    private Date dateOfDay;
+
+    @Column(name = "created_at")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdAt;
 
     public Person(int id, String name, int age) {
         this.id = id;

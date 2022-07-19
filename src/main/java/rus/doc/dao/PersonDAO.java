@@ -3,14 +3,11 @@ package rus.doc.dao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import rus.doc.models.Book;
 import rus.doc.models.Person;
 
-import java.beans.Transient;
 import java.util.List;
 import java.util.Optional;
 
