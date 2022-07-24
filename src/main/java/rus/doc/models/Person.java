@@ -1,11 +1,13 @@
 package rus.doc.models;
 
 import lombok.Data;
+import org.hibernate.annotations.Cascade;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -14,7 +16,7 @@ import java.util.Date;
 
 @Entity
 @Data
-@Table(name = "Person")
+@Table
 public class Person {
 
     @Id
@@ -30,19 +32,6 @@ public class Person {
     @Max(value = 101, message = "Возвраст не может быть больше")
     @Column(name = "age")
     private int age;
-
-    @Column(name = "book")
-    private String book;
-
-    @Column(name = "date_for_person_date")
-    @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    // i need added validator
-    private Date dateOfDay;
-
-    @Column(name = "created_at")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt;
 
     public Person(int id, String name, int age) {
         this.id = id;

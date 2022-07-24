@@ -15,6 +15,7 @@
     <input type="text" th:field="*{age}" id="age"/>
     <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</div>
     <br/>
+
     <input type="submit" value="Создать читателя"/>
     <br/>
     <a href="/people">Отменить создание</a>
