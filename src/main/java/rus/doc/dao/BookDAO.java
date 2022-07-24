@@ -1,10 +1,10 @@
 package rus.doc.dao;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import rus.doc.models.Book;
 import rus.doc.models.Person;
 
@@ -24,16 +24,23 @@ public class BookDAO {
         this.sessionFactory = sessionFactory;
     }
 
+    @Transactional(readOnly = true)
     public List<Book> index() {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+
+        return session.createQuery("select p from Book p", Book.class).getResultList();
     }
 
+    @Transactional
     public Book show(int id) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(Book.class, id);
     }
 
+    @Transactional
     public void save (Book book) {
-
+        Session session = sessionFactory.getCurrentSession();
+        session.save(book);
     }
 
     public void update(int id, Book updateBook) {
