@@ -30,8 +30,8 @@ public class ValidatorForPerson implements Validator {
     public void validate(Object o, Errors errors) {
         Person person = (Person) o;
 
-        if (personDAO.show(person.getName()) != null) {
-            errors.rejectValue("name", "", "Это имя использовано");
-        }
+//        if (personDAO.show(person.getName()) != null) {
+//            errors.rejectValue("name", "", "Это имя использовано");
+//        }
     }
 }
