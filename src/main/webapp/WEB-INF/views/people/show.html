@@ -5,21 +5,27 @@
   <title>Show</title>
 </head>
 <body>
-<p th:text="'ФИО: ' + ${person.getName()}">VALUE</p>
-<p th:text="'Возвраст: ' + ${person.getAge()}">VALUE</p>
+<p th:text="'ФИО: ' + ${person.getFullName()}">VALUE</p>
+<p th:text="'Возвраст: ' + ${person.getYearOfBirth()}">VALUE</p>
 <p th:text="'ИН: ' + ${person.getId()}" >VALUE</p>
 
-<div th:if="${books.isEmpty()}">
+<div th:if="${bookOwner.isEmpty()}">
   <p>У человека нету книги</p>
   <hr/>
 </div>
 
-<div th:if="${!books.isEmpty()}">
+<div th:if="${!bookOwner.isEmpty()}">
   <hr/>
   <b>Книги:</b>
   <br/>
-  <table th:each="book : ${books}">
-    <tr th:text="${book.getNameBook() + ', ' + book.getAuthor() + ', ' + book.getAge()}">book</tr>
+  <table th:each="book : ${bookOwner}">
+    <tr>
+      <td>
+                <span th:text="${book.getTitle() + ', ' + book.getAuthor() + ', ' + book.getYear()}"
+                book>
+                </span>
+      </td>
+    </tr>
   </table>
   <hr/>
 </div>

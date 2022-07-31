@@ -6,17 +6,17 @@
 </head>
 <body>
 <form th:method="PATCH" th:action="@{/books/{id}(id=${book.getId()})}" th:object="${book}">
-    <label for="nameBook">Введите новое название книги: </label>
-    <input type="text" th:field="*{nameBook}" id="nameBook"/>
-    <div style="color:red" th:if="${#fields.hasErrors('nameBook')}" th:errors="*{nameBook}">Name Error</div>
+    <label for="nameBook">Введите название книги: </label>
+    <input type="text" th:field="*{title}" id="nameBook"/>
+    <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Name Error</div>
     <br/>
-    <label for="author">Введите автора книги: </label>
+    <label for="author">Введите автора: </label>
     <input type="text" th:field="*{author}" id="author"/>
     <div style="color:red" th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author Error</div>
     <br/>
     <label for="age">Введите год издания: </label>
-    <input type="text" th:field="*{age}" id="age"/>
-    <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</div>
+    <input type="text" th:field="*{year}" id="age"/>
+    <div style="color:red" th:if="${#fields.hasErrors('year')}" th:errors="*{year}">Age Error</div>
     <br/>
     <input type="submit" value="Обновить/Исправить книгу"/>
     <br/>

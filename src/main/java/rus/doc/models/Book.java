@@ -14,30 +14,36 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Data
+@Table
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    @Column(name = "id")
     private int id;
+
     @NotEmpty(message = "Поле не может быть пустым")
     @Size(min = 3, max = 77, message = "Длина названия книги в пределах 3-77")
-    @Column(name = "name_book")
+    @Column(name = "title")
+    private String title;
 
-    private String nameBook;
     @NotEmpty(message = "Поле не может быть пустым")
     @Size(min = 3, max = 77, message = "Длина имени автора в пределах 3-77")
-
+    @Column(name = "author")
     private String author;
-    @Min(value = 1600, message = "Год не менее 1600")
+
     @Max(value = 2022, message = "Год не может быть больше чем сегодня")
+    @Min(value = 1500, message = "Год должен начинаться от 1500")
+    @Column(name = "year")
+    private int year;
 
-    private int age;
+    @ManyToOne
+    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    private Person owner;
 
-    public Book(int id, String nameBook, String author, int age) {
-        this.id = id;
-        this.nameBook = nameBook;
+    public Book(String title, String author, int year) {
+        this.title = title;
         this.author = author;
-        this.age = age;
+        this.year = year;
     }
 
     public Book() {
